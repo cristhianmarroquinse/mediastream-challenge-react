@@ -1,27 +1,57 @@
-.movie-library {
-  background-color: var(--black);
+.movie-library-container {
+  background-image: url("./mountains.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--white);
-  min-height: 100vh;
-  padding: 2em;
+  max-height: 90vh;
+}
+
+.movie-library {
+  padding: 2rem;
+  background: rgb(34,34,34);
+  background: linear-gradient(0deg, rgba(34,34,34,1) 99%, rgba(255,255,255,0) 100%);
 }
 
 .movie-library__title {
   font-size: 2em;
-  margin-bottom: 1em;
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+  font-weight: bold;
 }
 
 .movie-library__actions {
   display: flex;
-  margin-bottom: 1em;
+  padding: 0 2.5em 1em 2.5em;
+  background: rgb(34,34,34);
+  background: linear-gradient(0deg, rgba(34,34,34,1) 10%, rgba(255,255,255,0) 100%);
 }
 
-.movie-library__actions select {
+.movie-select-wrapper {
+  width: 100%;
+  display: flex;
+  outline: solid 2px var(--ms-green);
+  border-radius: 5px;
+}
+
+
+.movie-select-wrapper select {
   width: 100%;
   padding: .25em;
+  height: 35px;
+  font-family: inherit;
+  border-radius: 5px 0px 0px 5px;
+  display: flex;
+  border:0px;
+  outline:0px;
 }
 
-.movie-library__actions button {
+.movie-select-wrapper button {
+  border: unset;
+  background-color: var(--ms-green);
+  padding: 0 1.5em;
   white-space: nowrap;
+  border-radius: 0px 5px 5px 0px;
+  font-family: inherit;
 }
 
 .movie-library__loading {
@@ -33,25 +63,64 @@
 }
 
 .movie-library__list {
-  padding: 1em;
+  padding: 2rem;
   background-color: #222222;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
 }
 
 .movie-library__card {
-  background-color: #333333;
-  margin-bottom: 1em;
-  display: flex;
+  margin: 0.5rem;
   align-items: center;
+  position: relative;
+  border-radius: 4px;
 }
 
 .movie-library__card img {
-  width: 10em;
+  border-radius: 7px;
+  width: 100%;
 }
 
-.movie-library__card ul {
-  padding: 1em;
+.movie-library__card-gradient {
+  position: absolute;
+  background: rgb(107,217,26);
+  background: linear-gradient(0deg, var(--ms-green) 2%, rgba(255,255,255,0) 78%);
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 7px;
 }
 
-.movie-library__card li {
-  line-height: 120%;
+.movie-library__card-details {
+  position: absolute;
+  bottom: 3%;
+  left: 5%;
+}
+
+.movie-library__card-details p {
+  padding-bottom: 0.3rem;
+}
+
+.movie-library__card-details-title {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  .movie-library__list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .movie-library__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and   (max-width: 1024px) and (min-width: 769px) {
+  .movie-library__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
